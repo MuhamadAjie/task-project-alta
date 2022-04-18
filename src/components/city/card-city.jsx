@@ -1,12 +1,13 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 
 const CardCity = ({name, imageSrc, idHero1, idHero2}) => {
   let navigate = useNavigate()
+  let {id} = useParams()
 
   const handleClick = () => {
-    navigate("/villain")
+    navigate(`/villain/${id}`)
   }
 
   return(

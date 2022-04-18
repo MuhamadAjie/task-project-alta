@@ -18,10 +18,11 @@ const Villain = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch(Api.allVillains)
+    fetch(Api.selectCity)
       .then((res) => res.json())
       .then((data) => {
-        setVillain(data);
+        // console.log(">>>", data[id-1].villains)
+        setVillain(data[id-1].villains);
         setLoading(false)
       })
       .catch((err) => {
@@ -53,6 +54,7 @@ const Villain = () => {
                 {
                   villain.map((data) => (
                     <Col key={data.id}>
+                      {/* {console.log("hai", data)} */}
                       <CardVillain dataVill={data} background={idVill} update={Pilih} />
                     </Col>
                   ))
