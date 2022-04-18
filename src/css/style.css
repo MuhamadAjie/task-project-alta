@@ -1,52 +1,86 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap"); */
 
-.container {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-gap: 50px;
-  justify-content: center;
-  align-items: center;
-  height: 120vh;
-  margin: 0;
-  background-color: #524eb7;
-  font-family: "Baloo Paaji 2", cursive;
+/* Landing Page */
+/* body {
+  background-image: url("https://images-cdn.welcomesoftware.com/Zz0wZGI4ZTI2NjhlNGQxMWViODVlN2QzNTI0ZjhkZTQyOA==");
+} */
+
+.heroText1 {
+  font-size: 62px;
+  font-weight: 900;
+  margin-top: 200px;
+  margin-bottom: 0px;
+  color: #383838;
 }
 
-.card {
-  background-color: #222831;
-  height: 37rem;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.7);
+.heroText2 {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.bgLanding {
+  position: absolute;
+  width: 100%;
+  height: 625px;
+  background-image: url("https://images-cdn.welcomesoftware.com/Zz03ZTY0Mzk3MDhlNDgxMWViYmRmNWY3MjZjM2QxZTdiZg==");
+}
+
+.btnHero {
+  width: 231px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #2FA4FF;
   color: white;
+  font-size: 24px;
+  font-weight: bolder;
+  border: none;
+  box-shadow: 0px 20px 30px rgba(249, 131, 171, 0.5);
 }
 
-.active {
-  background-color: green;
+.btnHero:hover {
+  background-color: #0E185F;
 }
 
+/* >>>>>>>>>>>>>>>>>>>>>>> */
 .image {
   height: 160px;
   width: 160px;
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
-  box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
+  box-shadow: 0 10px 50px rgb(177, 154, 164);
+}
+
+.card-hero {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 20rem;
+  color: white;
+  background-color: #272133 !important;
+}
+
+.active {
+  background-color: #00C897 !important;
+}
+
+.img-city {
+  width: 320px !important;
+  height: 200px;
 }
 
 .btn-choose {
-  width: 100px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   border-radius: 40px;
-  background-color: goldenrod;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 900;
   cursor: pointer;
 }
 
-.btn-choose:hover, .btn-ability:hover, .btn-back:hover {
+/* ---------------------------- */
+.btn-choose:hover {
   background-color: greenyellow;
 }
 
@@ -54,14 +88,10 @@
   width: 200px;
   height: 50px;
   border-radius: 40px;
-  background-color: goldenrod;
+  background-color: goldenrod !important;
   text-transform: uppercase;
   font-weight: 900;
   cursor: pointer;
-}
-
-.hide-card {
-  display: none;
 }
 
 .btn-back {
@@ -81,7 +111,6 @@
 .btn-disable {
   cursor: not-allowed;
   pointer-events: none;
-
   width: 200px;
   height: 50px;
   border-radius: 40px;
@@ -89,5 +118,7 @@
   font-weight: 900;
 
   color: gray;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
+
+/* ------------------------ */

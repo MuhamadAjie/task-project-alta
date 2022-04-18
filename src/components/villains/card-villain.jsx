@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Button, Image } from "react-bootstrap";
 
-const CardHero = ({ dataChar, update, background }) => {
-  const { id, imgSrc, name, city, age } = dataChar;
+const CardVillain = ({ dataVill, update, background }) => {
+  const { id, imgSrc, name } = dataVill;
   const chooseChar = () => {
-    update(name, id);
+    update(id);
   };
 
   return(
@@ -13,10 +13,8 @@ const CardHero = ({ dataChar, update, background }) => {
         <Image className="image" src={imgSrc} alt="avatar" />
         <Card.Body>
           <h1>{name}</h1>
-          <h2>{age}</h2>
-          <h3>{city}</h3>
           <Button variant="primary" className="mt-3 mb-3 btn-choose" onClick={chooseChar}>
-            Choose
+            Fight With {name}
           </Button>
         </Card.Body>
       </Card>
@@ -24,4 +22,4 @@ const CardHero = ({ dataChar, update, background }) => {
   )
 }
 
-export default CardHero
+export default CardVillain
