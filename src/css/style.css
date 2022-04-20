@@ -1,10 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap"); */
-
-/* Landing Page */
-/* body {
-  background-image: url("https://images-cdn.welcomesoftware.com/Zz0wZGI4ZTI2NjhlNGQxMWViODVlN2QzNTI0ZjhkZTQyOA==");
-} */
-
 .heroText1 {
   font-size: 62px;
   font-weight: 900;
@@ -21,8 +14,12 @@
 
 .bgLanding {
   position: absolute;
-  width: 100%;
-  height: 625px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url("https://images-cdn.welcomesoftware.com/Zz03ZTY0Mzk3MDhlNDgxMWViYmRmNWY3MjZjM2QxZTdiZg==");
 }
 
@@ -42,7 +39,6 @@
   background-color: #0E185F;
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>> */
 .image {
   height: 160px;
   width: 160px;
@@ -79,7 +75,6 @@
   cursor: pointer;
 }
 
-/* ---------------------------- */
 .btn-choose:hover {
   background-color: greenyellow;
 }
@@ -120,5 +115,3 @@
   color: gray;
   background-color: #ffffff !important;
 }
-
-/* ------------------------ */

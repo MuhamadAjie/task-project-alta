@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="home" element={<Home />} />
-        <Route path="city/:id" element={<City />} />
-        <Route path="skill/:id" element={<Skill />} />
-        <Route path="villain/:id" element={<Villain />} />
+        <Route path="city/:heroID/:heroName" element={<City />} />
+        <Route path="skill/:heroID/:heroName" element={<Skill />} />
+        <Route path="villain/:heroID/:heroName/:cityName" element={<Villain />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

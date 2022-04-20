@@ -5,14 +5,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/loading";
 
 const Skill = () => {
-  let {id} = useParams()
+  let {heroID, heroName} = useParams()
   const navigate = useNavigate();
   const [abilityHeroes, setAbilityHeroes] = useState([]);
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     setLoading(true)
-    fetch(Api.chooseHeroes + id)
+    fetch(Api.chooseHeroes + heroID)
       .then((res) => res.json())
       .then((data) => {
         setAbilityHeroes(data.skills);
@@ -24,12 +24,12 @@ const Skill = () => {
   }, []);
 
   const handleClick = () => {
-    navigate(`/city/${id}`)
+    navigate(`/city/${heroID}/${heroName}`)
   }
 
   return(
     <Container className="text-center">
-      <h1 className="mt-5">Skills</h1>
+      <h1 className="mt-5">{heroName} Skills</h1>
       {
         loading == true ?
         <>

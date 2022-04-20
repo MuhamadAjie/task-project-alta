@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Api from "../utils/api";
 import Card from "../components/home/card-hero";
 import Loading from "../components/loading";
+import Swal from "sweetalert2";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -32,7 +33,28 @@ const Home = () => {
   };
 
   const handleClick = () => {
-    navigate(`/city/${idChar}`)
+    navigate(`/city/${idChar}/${char}`)
+  }
+
+  const handleDelete = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.clear();
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 
   const handleBack = () => {
@@ -50,7 +72,7 @@ const Home = () => {
           <div className="mt-3 d-flex justify-content-between">
             <h2>Choose Your Favorite Character</h2>
             <div>
-              <Button className="me-3">Reset Your Game Progress</Button>
+              <Button onClick={handleDelete} className="me-3">Reset Your Game Progress</Button>
               <Button onClick={handleBack}>Back to Landing Page</Button>
             </div>
           </div>

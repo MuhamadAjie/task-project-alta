@@ -6,11 +6,10 @@ import Api from "../utils/api";
 import Loading from "../components/loading";
 
 const City = () => {
-  let {id} = useParams()
+  let {heroID, heroName} = useParams()
   const navigate = useNavigate();
   const [city, setCity] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [nameCharacter, setNameCharacter] = useState("");
 
   useEffect(() => {
     setLoading(true)
@@ -25,24 +24,12 @@ const City = () => {
       });
   }, []);
 
-  useEffect(() => {
-    fetch(Api.chooseHeroes + id)
-      .then((res) => res.json())
-      .then((dataChar) => {
-        // console.log(dataChar.name)
-        setNameCharacter(dataChar.name)
-      })
-      .catch((err) => {
-        console.log(err)
-      });
-  }, []);
-
   const handleOtherHero = () => {
     navigate("/home");
   }
 
   const handleInfo = () => {
-    navigate(`/skill/${id}`);
+    navigate(`/skill/${heroID}/${heroName}`);
   }
 
   return(
@@ -55,7 +42,7 @@ const City = () => {
         <>
           <div className="mt-3 d-flex justify-content-between">
             <div>
-              <h1>Welcome {nameCharacter} !</h1>
+              <h1>Welcome {heroName} !</h1>
               <h2>Choose Your Battle Ground</h2>
             </div>
             <div>
@@ -67,8 +54,8 @@ const City = () => {
             {city && city.map((item) => {
               return(
                 <div key={item.id}>
-                  {/* {console.log(">>>>>>", item.heroes[0].name)} */}
-                  <CardCity name={item.name} imageSrc={item.imgSrc} idHero1={nameCharacter} idHero2={item.heroes[0].name}/>
+                  {/* {console.log("heroName", item.heroes)} */}
+                  <CardCity name={item.name} imageSrc={item.imgSrc} nameHero1={heroName} nameHero2={item.heroes}/>
                 </div>
               )
               })}

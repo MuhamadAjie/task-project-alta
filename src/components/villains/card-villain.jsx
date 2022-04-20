@@ -4,7 +4,7 @@ import { Card, Button, Image } from "react-bootstrap";
 const CardVillain = ({ dataVill, update, background }) => {
   const { id, imgSrc, name } = dataVill;
   const chooseChar = () => {
-    update(id);
+    update(name, id);
   };
 
   return(
