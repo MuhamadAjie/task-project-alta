@@ -13,13 +13,19 @@ const Villain = () => {
   const [idVill, setIdVill] = useState("");
   const [loading, setLoading] = useState(false)
   const [show, setShow] = useState(false);
+  const [showText, setShowText] = useState(true);
+  const [showText2, setShowText2] = useState(false);
   const [nameVill, setNameVill] = useState("");
 
   const [chooseVil, setChooseVil] = useState([]);
   const [heroHP, setHeroHP] = useState("");
   const [villainHP, setVillainHP] = useState("");
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false)
+    setShowText(true)
+    setShowText2(false)
+  };
 
   const handleBack = () => {
     navigate(`/city/${heroID}/${heroName}`);
@@ -55,15 +61,15 @@ const Villain = () => {
       });
   }, []);
 
+  // const dataHP = localStorage.getItem(`${heroName} Vs ${nameVill}`)
+  // const temp = JSON.parse(dataHP)
+  // console.log("<<<", temp.heroHP)
+
   const handleGetVillain = (id) => {
     fetch(Api.chooseVillain + id)
       .then((res) => res.json())
       .then((data) => {
         setChooseVil(data)
-        // const dataHP = localStorage.getItem(`${heroName} Vs ${nameVill}`)
-        // const temp = JSON.parse(dataHP)
-        // console.log("<<<", temp)
-
         // if(!dataHP){
         //   setVillainHP(data[0].maxHP)
         //   setHeroHP(100)
@@ -80,6 +86,8 @@ const Villain = () => {
   }
 
   const handleFight = () => {
+    setShowText(false)
+    setShowText2(true)
     const dataSend = {
       heroHP,
       villainHP
@@ -95,11 +103,8 @@ const Villain = () => {
     .then(hasil =>{
       // console.log(">>>", hasil)
       localStorage.setItem(`${heroName} Vs ${nameVill}`, JSON.stringify(hasil))
-      const dataHP = localStorage.getItem(`${heroName} Vs ${nameVill}`)
-        const temp = JSON.parse(dataHP)
-        console.log("<<<", temp)
-      setHeroHP(temp.heroHP)
-      setVillainHP(temp.villainHP)
+      setHeroHP(hasil.heroHP)
+      setVillainHP(hasil.villainHP)
     })
     .catch(err =>{
       alert(err)
@@ -125,18 +130,23 @@ const Villain = () => {
                 <img className="mb-5 image" src={item.imgSrc}/>
                 <ProgressBar className="mb-3" striped variant="success" now={villainHP} label={`${villainHP}%`} />
                 {
+                  showText && <h1 className="mb-3 textBorder">Ready</h1> ||
+                  showText2 && <h1 className="mb-3 textBorder">Ganbate!!</h1>
+                }
+
+                {/* {
                   heroHP - 10?
                   <>
-                    <h2 className="mb-3">You Lose, Your HP -10%</h2><h1>Ready</h1>
+                    <h2 className="mb-3 textBorder">You Lose, Your HP -10%</h2><h1>Ready</h1>
                   </> :
                   villainHP - 10 ?
                   <>
-                    <h2 className="mb-3">You Win, Enemy HP -10%</h2>
+                    <h2 className="mb-3 textBorder">You Win, Enemy HP -10%</h2>
                   </> :
                   <>
-                    <h1>Ready</h1>
+                    <h1 className="mb-3 textBorder">???</h1>
                   </>
-                }
+                } */}
                 <ProgressBar className="mb-3" striped variant="info" now={heroHP} label={`${heroHP}%`} />
               </div>
             ))

@@ -115,3 +115,7 @@
   color: gray;
   background-color: #ffffff !important;
 }
+
+.textBorder {
+  border: 5px solid black;
+}
